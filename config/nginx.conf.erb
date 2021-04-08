@@ -20,6 +20,7 @@ http {
 		listen <%= ENV["PORT"] %>;
 
 		location / {
+			rewrite /(.*) /$1  break;
 			proxy_pass <%= ENV["UPSTREAM_SERVER"] %>;
 			proxy_set_header Host $host;
 			proxy_redirect off;
