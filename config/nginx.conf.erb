@@ -44,11 +44,11 @@ http {
         location / {
             set $upstream upstream_app_a;
             proxy_pass https://$upstream;
-            proxy_ssl_name $host;
+            proxy_ssl_name <%=ENV["UPSTREAM_SERVER"]%>;
             proxy_set_header x-forwarded-host $host;
             proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header Host $host;
-						proxy_redirect off;
+            proxy_set_header Host <%=ENV["UPSTREAM_SERVER"]%>;
+			proxy_redirect off;
         }
     }
 }
