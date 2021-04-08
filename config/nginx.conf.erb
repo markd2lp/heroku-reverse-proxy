@@ -21,7 +21,7 @@ http {
 
 		location / {
 			proxy_pass <%= ENV["UPSTREAM_SERVER"] %>;
-			proxy_set_header Host https://fuelpanda-reverse-proxy-2.herokuapp.com/;
+			proxy_set_header Host $host;
 			proxy_redirect off;
 		}
 
