@@ -48,15 +48,7 @@ http {
             proxy_set_header x-forwarded-host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header Host $host;
-        }
-
-        location /other {
-            set $upstream upstream_app_b;
-            proxy_pass https://$upstream;
-            proxy_ssl_name app-b.herokuapp.com;
-            proxy_set_header x-forwarded-host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header Host app-b.herokuapp.com;
+						proxy_redirect off;
         }
     }
 }
